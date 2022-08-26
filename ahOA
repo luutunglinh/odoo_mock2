@@ -1,0 +1,24 @@
+[33mcommit b98c0870e64a52ebbdc865fee1bafe5c606a27fa[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: efb25d7 5e7f152
+Author: Lưu Tùng Linh (DU01 PTPM) <linhlt56@viettelsoftware.net>
+Date:   Fri Aug 26 14:52:56 2022 +0700
+
+    Merge branch 'main' of https://github.com/luutunglinh/odoo_mock2
+
+[33mcommit efb25d74b895f0daff56d9fb2d98e31a58596893[m
+Author: Lưu Tùng Linh (DU01 PTPM) <linhlt56@viettelsoftware.net>
+Date:   Fri Aug 26 14:51:51 2022 +0700
+
+    updated source
+
+[33mcommit 5e7f1523f9345ba40c1c933552c6cdc541b60459[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: luutunglinh <78138744+luutunglinh@users.noreply.github.com>
+Date:   Fri Aug 26 14:27:18 2022 +0700
+
+    Create README.md
+
+[33mcommit 01d9e5ea5e654f5c320b922f4c339ea550f7c5c9[m
+Author: Lưu Tùng Linh (DU01 PTPM) <linhlt56@viettelsoftware.net>
+Date:   Fri Aug 26 14:23:24 2022 +0700
+
+    first commit
