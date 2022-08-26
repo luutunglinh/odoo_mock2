@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report id="print_report_ptd_xls"
+                model="vss.report.car.wizard"
+                string="Báo cáo chi tiết phương tiện đo lường trong tập đoàn Excel"
+                report_type="xlsx"
+                name="my_module.baocaochitietexcel"
+                file="In Báo cáo chi tiết phương tiện đo lường trong tập đoàn Excel"
+                attachment_use="True"
+                />
+
+<!--        <record id="report_patient_appointment_xlsx" model="ir.actions.report">-->
+<!--            <field name="name">Báo cáo</field>-->
+<!--            <field name="model">vss.report.car.wizard</field>-->
+<!--            <field name="report_type">xlsx</field>-->
+<!--            <field name="report_name">my_module.report_patient_appointment_xlsx</field>-->
+<!--            <field name="binding_type">report</field>-->
+<!--        </record>-->
+    </data>
+
+</odoo>

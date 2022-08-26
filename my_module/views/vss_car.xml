@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+
+        <record id="car_kanban" model="ir.ui.view">
+            <field name="name">vss.car.kanban</field>
+            <field name="model">vss.car</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="id"/>
+                    <field name="horse_power"/>
+                    <field name="image"/>
+                    <field name="status"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+
+                                <div class="o_kanban_image">
+                                    <img alt="Girl in a jacket" t-att-src="kanban_image('vss.car','image',record.id.raw_value)"/>
+                                </div>
+                                <div class="oe_kanban_details flex-column">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                    <ul>
+
+                                        <li>
+                                            Horse power:
+                                            <field name="horse_power"/>
+
+                                        </li>
+                                        <li>
+                                            Image:
+                                            <field name="image"/>
+
+                                        </li>
+                                        <li>
+                                            Status:
+                                            <field name="status"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="view_vss_car_form" model="ir.ui.view">
+            <field name="model">vss.car</field>
+            <field name="arch" type="xml">
+                <form string="Quản lý xe">
+                    <header>
+                        <field name="status" widget="statusbar"/>
+                        <button id="button_using_func" name="onchange_result" string="Done"
+                                type="object"
+                                class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="refer" readonly="1"/>
+                                <field name="image" widget="image" class="oe_avatar"/>
+                            </h1>
+
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="horse_power"
+                                       attrs="{
+                                        'readonly':[('door_number','=',4)],
+                                        'required':[('name','=','abc')]
+                                    }"
+                                />
+                                <field name="door_number"/>
+                                <field name="total_speed" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="driver_id"/>
+                                <field name="feature_ids" widget="many2many_tags"/>
+                                <field name="parking_id"/>
+                                <field name="car_total"/>
+                                <field name="car_price"
+                                />
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+
+        <record id="action_vss_car_tree" model="ir.ui.view">
+            <field name="name">Quản lý xe</field>
+            <field name="model">vss.car</field>
+            <field name="arch" type="xml">
+                <tree string="Quản lý xe" default_order="id desc">
+                    <field name="refer"/>
+                    <field name="name"/>
+                    <field name="horse_power"/>
+                    <field name="door_number"/>
+                    <field name="driver_id"/>
+                    <field name="parking_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_user_inherit" model="ir.ui.view">
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Orther Information">
+                        <group col="4">
+                            <field name="message"/>
+                            <field name="other_info"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_hr_employee_inherit" model="ir.ui.view">
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='department_id']" position="before">
+                    <field name="pincode"/>
+                    <field name="password"/>
+                </xpath>
+            </field>
+        </record>
+
+
+
+        <record id="view_user_inherit_tree" model="ir.ui.view">
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='login_date']" position="after">
+                    <field name="message"/>
+                    <field name="other_info"/>
+                </xpath>
+            </field>
+        </record>
+
+
+
+
+
+
+        <record id="view_vss_car" model="ir.ui.view">
+            <field name="model">vss.car</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="name" type="row"/>
+                    <field name="car_price" type="col"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="view_car_graph" model="ir.ui.view">
+            <field name="name">Car Graph</field>
+            <field name="model">vss.car</field>
+            <field name="arch" type="xml">
+                <graph string="Car Graph" type="bar">
+                    <field name="name"/>
+                    <field name="car_total" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="view_patient_search" model="ir.ui.view">
+            <field name="model">vss.car</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="refer"/>
+                    <separator/>
+                    <filter string="My Requests" name="name"
+                            domain="[('create_uid', '=', uid)]"/>
+                    <filter string="Had driver" name="driver_id" domain="[('driver_id','!=',False)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Status" name="status" context="{'group_by':'status'}"/>
+                        <filter string="Id Driver" name="driver_id" context="{'group_by':'driver_id'}"/>
+                    </group>
+                </search>
+
+            </field>
+        </record>
+
+
+        <record id='vss_car_act' model='ir.actions.act_window'>
+            <field name="name">Quản lý xe</field>
+            <field name="res_model">vss.car</field>
+            <field name="context">{'search_default_driver_id':0}</field>
+            <field name="view_mode">tree,form,kanban,pivot,graph</field>
+        </record>
+    </data>
+</odoo>

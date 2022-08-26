@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_vss_parking_form" model="ir.ui.view">
+            <field name = "model">vss.parking</field>
+            <field name="arch" type="xml">
+                <form string="Quản lý bãi đỗ xe">
+                    <sheet>
+                            <group>
+                                <field name="name"/>
+                                <field name="cars_id"/>
+                                <field name="parking_price"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_vss_parking_tree" model="ir.ui.view">
+            <field name="name">Quản lý bãi đỗ xe</field>
+            <field name="model">vss.parking</field>
+            <field name="arch" type="xml">
+                <tree string="Quản lý bãi đỗ xe"  default_order="id desc" >
+                      <field name="name"/>
+                      <field name="cars_id"/>
+                      <field name="parking_price"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id='vss_parking_act' model='ir.actions.act_window'>
+            <field name="name">Quản lý bãi đỗ xe</field>
+            <field name="res_model">vss.parking</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

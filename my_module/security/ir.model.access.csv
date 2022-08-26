@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_model_vss_car,model_access_vss_car,model_vss_car,group_super_manager,1,1,1,1
+access_model_vss_car_feature,model_access_vss_car_feature,model_vss_car_feature,group_super_manager,1,1,1,1
+access_model_vss_parking,model_access_vss_parking,model_vss_parking,group_super_manager,1,1,1,1
+access_model_vss_car_manager,model_access_vss_car_manager,model_vss_car,group_manager,1,1,1,0
+access_model_vss_car_feature_manager,model_access_vss_car_feature_manager,model_vss_car_feature,group_manager,1,1,1,1
+access_model_vss_parking_manager,model_access_vss_parking_manager,model_vss_parking,group_manager,1,1,1,1
+access_model_vss_car_user,model_access_vss_car_user,model_vss_car,group_user,1,0,0,0
+access_model_vss_car_feature_user,model_access_vss_car_feature_user,model_vss_car_feature,group_user,1,1,1,1
+access_model_vss_parking_user,model_access_vss_parking_user,model_vss_parking,group_user,1,1,1,1
+
+
