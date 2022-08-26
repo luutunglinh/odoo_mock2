@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, _,api
 
-
+# Tạo model câu 6 và 26
 class VssUser(models.Model):
     _inherit = 'res.users'
 

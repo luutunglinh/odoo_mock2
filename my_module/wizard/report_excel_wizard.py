@@ -5,8 +5,8 @@ class ReportExcellWizarad(models.TransientModel):
     _name = 'vss.report.car.wizard'
     _description = "Excell Wizard Car"
 
+    #câu 22
     name = fields.Integer(string="Max of horse power")
-
     def print_report_excel(self):
         appointments = self.env['vss.car'].search_read([])
         print(appointments)

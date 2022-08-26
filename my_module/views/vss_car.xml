@@ -2,7 +2,9 @@
 <odoo>
     <data>
 
-
+        <!--        27.	Tạo view Kanban Car: Name, horse_power, images, status-->
+        <!--     28.tạo privot -->
+        <!--        29.	Tạo view Graph:-->
         <record id="car_kanban" model="ir.ui.view">
             <field name="name">vss.car.kanban</field>
             <field name="model">vss.car</field>
@@ -18,7 +20,8 @@
                             <div class="oe_kanban_global_click">
 
                                 <div class="o_kanban_image">
-                                    <img alt="Girl in a jacket" t-att-src="kanban_image('vss.car','image',record.id.raw_value)"/>
+                                    <img alt="Girl in a jacket"
+                                         t-att-src="kanban_image('vss.car','image',record.id.raw_value)"/>
                                 </div>
                                 <div class="oe_kanban_details flex-column">
                                     <strong>
@@ -49,7 +52,7 @@
             </field>
         </record>
 
-
+        <!--       11. tạo form-->
         <record id="view_vss_car_form" model="ir.ui.view">
             <field name="model">vss.car</field>
             <field name="arch" type="xml">
@@ -97,8 +100,7 @@
         </record>
 
 
-
-
+        <!--       8. Tạo tree car-->
         <record id="action_vss_car_tree" model="ir.ui.view">
             <field name="name">Quản lý xe</field>
             <field name="model">vss.car</field>
@@ -114,7 +116,7 @@
             </field>
         </record>
 
-
+        <!--12.	Thêm trường vào form view và tree view users:-->
         <record id="view_user_inherit" model="ir.ui.view">
             <field name="model">res.users</field>
             <field name="inherit_id" ref="base.view_users_form"/>
@@ -131,6 +133,22 @@
             </field>
         </record>
 
+          <record id="view_user_inherit_tree" model="ir.ui.view">
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='login_date']" position="after">
+                    <field name="message"/>
+                    <field name="other_info"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!--        30.	Install module Employee-->
+        <!--Tạo thêm trường trong model hr_employee:-->
+        <!--pincode: Char -->
+        <!--password: Char-->
+        <!--Thêm 2 trường này trong employee view (trước deparment, trường password mã hóa)-->
 
         <record id="view_hr_employee_inherit" model="ir.ui.view">
             <field name="model">hr.employee</field>
@@ -142,20 +160,6 @@
                 </xpath>
             </field>
         </record>
-
-
-
-        <record id="view_user_inherit_tree" model="ir.ui.view">
-            <field name="model">res.users</field>
-            <field name="inherit_id" ref="base.view_users_tree"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='login_date']" position="after">
-                    <field name="message"/>
-                    <field name="other_info"/>
-                </xpath>
-            </field>
-        </record>
-
 
 
 
@@ -182,6 +186,10 @@
             </field>
         </record>
 
+
+    <!--23.	Trong màn hình car tree thêm option group theo: status, driver_id-->
+    <!--24.	Trong màn hình car tree thêm option filter: My Car để lọc những car của chính user đang login tạo ra-->
+    <!--25.	Trong màn hình car tree để default filter theo Had driver (Tức là những recore có driver_id <> Null): Sử dụng context-->
         <record id="view_patient_search" model="ir.ui.view">
             <field name="model">vss.car</field>
             <field name="arch" type="xml">

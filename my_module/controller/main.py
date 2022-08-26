@@ -6,6 +6,7 @@ import json
 
 
 class Main(http.Controller):
+
     @http.route('/car',type='http',auth='none')
     def car(self):
         return json.dumps({
@@ -35,7 +36,9 @@ class Main(http.Controller):
             }
         return json.dumps(response)
 
-    @http.route('/car01', type='http', auth='none')
+
+    #Câu 20 phần 1
+    @http.route('/cars', type='http', auth='none')
     def car01(self):
         mylist = []
         models_ids = request.env['vss.car'].sudo().search([], order='horse_power desc', limit=3)
